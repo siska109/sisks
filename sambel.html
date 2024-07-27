@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemilihan Sambal Terfavorit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pemilihan Sambal Terfavorit</h1>
+        <form method="post">
+            <label for="sambal_bawang">Sambal Bawang:</label>
+            <input type="number" id="sambal_bawang" name="sambal_bawang" step="0.01" required><br>
+            
+            <label for="sambal_ijo">Sambal Ijo:</label>
+            <input type="number" id="sambal_ijo" name="sambal_ijo" step="0.01" required><br>
+            
+            <label for="sambal_matah">Sambal Matah:</label>
+            <input type="number" id="sambal_matah" name="sambal_matah" step="0.01" required><br>
+            
+            <label for="sambal_kecap">Sambal Kecap:</label>
+            <input type="number" id="sambal_kecap" name="sambal_kecap" step="0.01" required><br>
+            
+            <label for="sambal_terasi">Sambal Terasi:</label>
+            <input type="number" id="sambal_terasi" name="sambal_terasi" step="0.01" required><br>
+            
+            <label for="sambal_pete">Sambal Pete:</label>
+            <input type="number" id="sambal_pete" name="sambal_pete" step="0.01" required><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+        {% if result %}
+            <h2>Hasil Pemilihan</h2>
+            <ul>
+                {% for sambal, weight in result.items() %}
+                    <li>{{ sambal }}: {{ weight }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
